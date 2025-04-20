@@ -7,10 +7,7 @@ int main() {
     int b;
     cin >> b;
 
-    if (a % b == 0) {
-        cout << "Multiples";
-    }
-    else if (b % a == 0) {
+    if (a % b == 0 || b % a == 0) {
         cout << "Multiples";
     }
     else {
