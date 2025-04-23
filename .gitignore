@@ -1,3 +1,2 @@
 *.exe
-/.cph
-/sheet-1/.cph
+*/.cph
