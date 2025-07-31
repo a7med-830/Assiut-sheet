@@ -1,15 +1,16 @@
+#include <climits>
 #include <iostream>
 using namespace std;
 typedef long long ll;
 
-ll ma = LONG_LONG_MIN;
+ll ma = LLONG_MIN;
 
 void maxInArray(ll a[], int n, int i) {
     if (i == n)
         return;
+
     ma = max(a[i], ma);
-    i++;
-    return maxInArray(a, n, i);
+    maxInArray(a, n, i + 1); 
 }
 
 int main() {
@@ -20,8 +21,6 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
-    
-    int i = 1;
-    maxInArray(a, n, i);
-    cout << ma;
+    maxInArray(a, n, 0);
+    cout << ma << endl;
 }
