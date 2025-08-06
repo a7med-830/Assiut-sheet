@@ -1,11 +1,15 @@
 #include <iostream>
 using namespace std;
+typedef long long ll;
 
 int n, target;
 int a[20];
 bool found = false;
 
-void solve(int i, long long sum) {
+void solve(int i, ll sum) {
+    if (found)
+        return;
+
     if (i == n) {
         if (sum == target)
             found = true;
