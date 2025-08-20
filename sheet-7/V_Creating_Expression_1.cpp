@@ -1,24 +1,19 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 
 int n, target;
-int a[20];
-bool found = false;
+int a[25];
 
-void solve(int i, ll sum) {
-    if (found)
-        return;
+bool solve(int i, ll sum) {
+    if (i == n)
+        return sum == target;
 
-    if (i == n) {
-        if (sum == target)
-            found = true;
-        return;
-    }
+    bool plus = solve(i + 1, sum + a[i]);
 
-    solve(i + 1, sum + a[i]);
+    bool minus = solve(i + 1, sum - a[i]);
 
-    solve(i + 1, sum - a[i]);
+    return plus || minus;
 }
 
 int main() {
@@ -26,8 +21,10 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
-    solve(0, 0);
+    if (solve(1, a[0]))
+        cout << "YES\n";
+    else
+        cout << "NO\n";
 
-    cout << (found ? "YES" : "NO") << endl;
     return 0;
 }
