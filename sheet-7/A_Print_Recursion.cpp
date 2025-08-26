@@ -7,8 +7,8 @@ int print(int &n) {
         return 0;
     }
     cout << "I love Recursion\n";
-    n--;
-    return print(n);
+    n--; // return print(n - 1);
+    return print(n); 
 }
 
 int main() {
