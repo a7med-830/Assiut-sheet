@@ -6,12 +6,13 @@ int main() {
     int n, b, d, res = 0;
     cin >> n >> b >> d;
 
-    int a[n];
+    
+    int orange;
     int waste = 0;
     for (int i = 0; i < n; i++){
-        cin >> a[i];
-        if (a[i] > b) continue;
-        waste += a[i];
+        cin >> orange;
+        if (orange > b) continue;
+        waste += orange;
         if (waste > d) {
             res++;
             waste = 0;
