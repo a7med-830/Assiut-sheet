@@ -2,20 +2,27 @@
 using namespace std;
 typedef long long ll;
 
+ll a[1000001] = {0};
+
 int main() {
-    int t; 
+    a[1] = 1;
+
+    for (ll i = 2; i * i <= 1000000; i++) {
+        if (a[i] == 0) {
+            for (ll z = i * i; z <= 1000000; z += i) 
+                a[z] = 1;
+        }
+    }
+
+    int t;
     cin >> t;
 
     while (t--) {
-        ll n, divisors = 0;
+        ll n;
         cin >> n;
-    
-    
-        for (int i = 2; i <= n / 2; i++)
-            if (n % i == 0) divisors++;
-    
-        cout << ((divisors == 1) ? "YES" : "NO") << endl; 
-    }
-    
 
+        ll x = sqrtl(n);
+
+        cout << (((x * x) == n && a[x] == 0) ? "YES\n" : "NO\n");
+    }
 }
