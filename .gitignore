@@ -1,3 +1,4 @@
 *.exe
 */.cph
 */.vscode
+/MET-sheets/*/.cph
